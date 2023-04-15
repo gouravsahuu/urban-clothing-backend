@@ -54,7 +54,7 @@ userRoute.post("/login",async (req,res) => {
             bcrypt.compare(userDetail.password, user[0].password, (err,result) => {
                 if(result){
                     const token = jwt.sign({userID:user[0]._id},"somekey",{expiresIn: '1h'});
-                    res.send({"message":"Log-In Success","token":token,"help":"You can use this token to access protected routes","username":`${user[0].name},"userID":${user[0]._id}`});
+                    res.send({"message":"Log-In Success","token":token,"help":"You can use this token to access protected routes","username":`${user[0].name}`,"userID":`${user[0]._id}`});
                 }
                 else{
                     res.send({"message":"Login Failed, Invalid Credentials"});
