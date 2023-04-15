@@ -31,7 +31,7 @@ userRoute.get("/all",async(req,res) => {
 })
 
 userRoute.get("/id/:id",async(req,res) => {
-    const {id} = req.params;
+    const id = req.params.id;
     try{
         const indiUser = await UserModel.find({_id:id});
         if(indiUser.length > 0){
