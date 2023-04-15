@@ -30,6 +30,22 @@ userRoute.get("/all",async(req,res) => {
     res.send(allUsers);
 })
 
+userRoute.get("/id/:id",async(req,res) => {
+    const {id} = req.params;
+    try{
+        const indiUser = await UserModel.find({_id:id});
+        if(indiUser.length > 0){
+            res.send(indiUser);
+        }
+        else{
+            res.send({"message":"Invalid User"});
+        }
+    }
+    catch(err){
+        res.send({"message":"Something Went Wrong","error":err.message});
+    }
+})
+
 userRoute.post("/login",async (req,res) => {
      const userDetail = req.body;
      try{
