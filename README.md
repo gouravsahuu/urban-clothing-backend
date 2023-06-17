@@ -72,3 +72,7 @@ Frontend deployed link - https://fluffy-kelpie-9b2a37.netlify.app/
             method : "DELETE"
             success-response : deletes product with a particular ID provided
             message : "Product Deleted"
+
+### Start server locally
+
+    npm run server
